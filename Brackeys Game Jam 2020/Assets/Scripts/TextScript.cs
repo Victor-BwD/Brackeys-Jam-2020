@@ -8,13 +8,14 @@ public class TextScript : MonoBehaviour
 {
     public Text introText;
     public string contentText;
-    private float letterPause = 0.3f;
+    private float letterPause = 0.1f;
 
     // Start is called before the first frame update
     void Start()
     {
         string writeThis = contentText;
         StartCoroutine(TypeSentence(writeThis));
+        
 
     }
 
@@ -32,6 +33,9 @@ public class TextScript : MonoBehaviour
         {
             yield return new WaitForSeconds(letterPause);
             introText.text += " " + array[i];
+            
         }
     }
+
+    
 }
