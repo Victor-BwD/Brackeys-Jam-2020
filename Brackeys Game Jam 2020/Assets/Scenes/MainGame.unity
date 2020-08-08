@@ -373,22 +373,22 @@ MonoBehaviour:
   waves:
   - name: Invasion!
     enemy: {fileID: 5308520417456352970, guid: bd1ec032a7353fe41ace857217364ce9, type: 3}
-    cont: 2
+    cont: 6
     rate: 1
   - name: Invasion 2!
     enemy: {fileID: 5308520417456352970, guid: bd1ec032a7353fe41ace857217364ce9, type: 3}
-    cont: 5
-    rate: 2
+    cont: 9
+    rate: 1
   - name: Last Wave!
     enemy: {fileID: 5308520417456352970, guid: bd1ec032a7353fe41ace857217364ce9, type: 3}
-    cont: 8
+    cont: 15
     rate: 3
   spawnPoint:
   - {fileID: 1624835904}
   - {fileID: 51829296}
   - {fileID: 215326324}
   - {fileID: 68126012}
-  timeBetweenWaves: 5
+  timeBetweenWaves: 3
   waveContdown: 0
 --- !u!4 &107437490
 Transform:
