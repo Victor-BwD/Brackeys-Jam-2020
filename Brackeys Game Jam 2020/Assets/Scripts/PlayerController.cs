@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,12 +15,18 @@ public class PlayerController : MonoBehaviour
 	float nextFire = 0.0f;
 	public GameObject bulletPosition;
 	bool facingRight = true;
+
+	public int maxHealth = 100;
+	public int currentHealth;
 	
+
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		currentHealth = maxHealth;
+	
 		
 	}
 
@@ -89,6 +97,9 @@ public class PlayerController : MonoBehaviour
 			Fire();
 		}
 	}
+
+
+
 
 
 }
