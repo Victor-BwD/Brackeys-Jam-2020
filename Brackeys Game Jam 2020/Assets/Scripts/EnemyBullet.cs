@@ -4,33 +4,38 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    float speed;
-    Vector2 _direction;
-    bool isReady;
+    float movespeed = 7f;
+
+    Rigidbody2D rb;
+
+    PlayerController target;
+    Vector2 moveDirection;
 
     // Start is called before the first frame update
     void Start()
     {
-        speed = 5f;
-        isReady = false;
+        rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindObjectOfType<PlayerController>();
+        moveDirection = (target.transform.position - transform.position).normalized * movespeed;
+        rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
+        Destroy(gameObject, 3f);
     }
 
 
-    public void SetDirection(Vector2 direction)
-    {
-        _direction = direction.normalized;
-        isReady = true;
-    }
+
 
     // Update is called once per frame
     void Update()
     {
-        if (isReady)
+    
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name.Equals("Player"))
         {
-            Vector2 position = transform.position;
-            position += _direction * speed * Time.deltaTime;
-            transform.position = position;
-            Destroy(gameObject, 5f);
+            Debug.Log("Hit!");
+            Destroy(gameObject);
         }
     }
 }

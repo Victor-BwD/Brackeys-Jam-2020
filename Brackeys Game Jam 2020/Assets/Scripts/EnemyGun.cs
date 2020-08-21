@@ -6,31 +6,30 @@ public class EnemyGun : MonoBehaviour
 {
     public GameObject enemyBullet;
 
+    float fireRate;
+    float nextFire;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        fireRate = 1f;
+        nextFire = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        CheckTimeToFire();
     }
 
-    void FireEnemyBullety()
+    void CheckTimeToFire()
     {
-        GameObject player = GameObject.Find("Player");
-
-        if(player != null)
+        if(Time.time > nextFire)
         {
-            GameObject bullet = (GameObject)Instantiate(enemyBullet);
-
-            bullet.transform.position = transform.position;
-            Vector2 direction = player.transform.position - bullet.transform.position;
-
-            bullet.GetComponent<EnemyBullet>().SetDirection(direction);
-
+            Instantiate(enemyBullet, transform.position, Quaternion.identity);
+            nextFire = Time.time + fireRate;
         }
     }
+
 }
