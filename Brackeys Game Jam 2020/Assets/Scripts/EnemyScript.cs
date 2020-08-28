@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     public Transform Player;
-    public float speed = 2f;
+    public float speed = 1f;
     private float minDistance = 0.2f;
     private float range;
 

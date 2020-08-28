@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 	{
 		movementx = Input.GetAxis("Horizontal");
 		movementy = Input.GetAxis("Vertical");
-		transform.Translate(movementx *Time.deltaTime, movementy * Time.deltaTime, 0);
+		transform.Translate(movementx *Time.deltaTime, movementy * speed * Time.deltaTime, 0);
 		
 		if (movementx > 0f)
 		{
